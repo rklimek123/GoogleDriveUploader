@@ -9,6 +9,7 @@ Aby uruchomić projekt, należy utworzyć folder `resources` w `src/main` i doda
 * `access.token`
 * `client.id`
 * `client.secret` - te 3 pola to dane do autentykacji konta Google.
+* `limit.extension` - rozszerzenie plików, które mają być wysyłane, np `".c"`. Pozostałe pliki będą usuwane z folderu bez wysyłania.
 
 Następnie należy użyć komend `gradle build` oraz `gradle bootRun`, używając pliku build.gradle.
 
@@ -20,7 +21,7 @@ na konto GoogleDrive użytkownika wskazanego w parametrach dotyczących autentyk
 
 Następnie będzie nasłuchiwał, czy nie pojawiły się inne pliki w tym folderze. Jeśli tak, prześle je.
 
-Każdy przesłany plik jest usuwany z folderu.
+Każdy przetworzony plik jest usuwany z folderu.
 
 ## Komponenty Apache Camel
 
