@@ -16,10 +16,10 @@ Następnie należy użyć komend `gradle build` oraz `gradle bootRun`, używają
 ## Użycie
 
 Po skonfigurowaniu i uruchomieniu programu, program prześle wszystkie pliki znajdujące się w folderze,
-do którego prowadzi ścieżka `directory` wskazana w pliku konfiguracyjnym,
+do którego prowadzi ścieżka `directory` wskazana w pliku konfiguracyjnym, których rozszerzenie jest zgodne z tym podanym w `limit.extension`,
 na konto GoogleDrive użytkownika wskazanego w parametrach dotyczących autentykacji.
 
-Następnie będzie nasłuchiwał, czy nie pojawiły się inne pliki w tym folderze. Jeśli tak, prześle je.
+Następnie będzie nasłuchiwał, czy nie pojawiły się inne pliki w tym folderze. Jeśli tak, przetworzy je i jeśli rozszerzenia będą się zgadzać, prześle je.
 
 Każdy przetworzony plik jest usuwany z folderu.
 
