@@ -25,6 +25,9 @@ public class UploaderRoute extends RouteBuilder {
     @Value("${directory}")
     String directory;
 
+    @Value("${limit.extension}")
+    String limit_extension;
+
     @Override
     public void configure() throws Exception {
 
@@ -39,6 +42,10 @@ public class UploaderRoute extends RouteBuilder {
         context.addComponent("google-drive", component);
 
         from("file://{{directory}}?delete=true")
+                .process(new FileMetadataHeaderProcessor())
+                .log("Checking if file ${header.filename} has extension " + limit_extension)
+                .log("proceed if ${header.extension} == " + limit_extension)
+                .filter(simple("${header.extension} == " + limit_extension))
                 .to("direct://uploadFile");
 
         from("direct://uploadFile")
