@@ -1,4 +1,4 @@
-package sender;
+package uploader;
 
 import java.io.File;
 
@@ -13,7 +13,17 @@ public class FileMetadataHeaderProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
         File file = exchange.getIn().getBody(File.class);
         String filename = file.getName();
+        int last_dot = filename.lastIndexOf('.');
+
+        String extension;
+        if (last_dot == -1) {
+            extension = "";
+        }
+        else {
+            extension = filename.substring(last_dot);
+        }
 
         exchange.getIn().setHeader("filename", filename);
+        exchange.getIn().setHeader("extension", extension);
     }
 }

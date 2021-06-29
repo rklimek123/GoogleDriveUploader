@@ -11,11 +11,6 @@ repositories {
     mavenCentral()
 }
 
-jar {
-    archiveBaseName = 'kafka-sender'
-    archiveVersion = '1.0-SNAPSHOT'
-}
-
 dependencies {
     def camelVersion = '3.9.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -23,7 +18,7 @@ dependencies {
     implementation "org.apache.camel.springboot:camel-servlet-starter:$camelVersion"
 
     implementation "org.apache.camel:camel-file:$camelVersion"
-    implementation "org.apache.camel:camel-kafka:$camelVersion"
+    implementation "org.apache.camel:camel-google-drive:$camelVersion"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
